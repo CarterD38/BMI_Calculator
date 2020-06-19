@@ -1,0 +1,45 @@
+from tkinter import *
+
+root = Tk()
+root.title("BMI Calculator")
+
+name1 = Entry(root)
+name1.grid(row=0, column=0,)
+name1.insert(0, "Name")
+
+height1 = Entry(root)
+height1.grid(row=1, column=0)
+height1.insert(0, "Height (in)")
+
+weight1 = Entry(root)
+weight1.grid(row=2, column=0)
+weight1.insert(0, "Weight (lbs)")
+
+def myClick():
+    name = name1.get()
+    height_in = float(height1.get())
+    weight_lb = float(weight1.get())
+
+    weight_kg = weight_lb * 0.453592
+    height_m = height_in * 0.0254
+
+    bmi = weight_kg / (height_m ** 2)
+
+    if (bmi < 18.50):
+        msg: object = (name + " is thin")
+    elif (18.5 <= bmi < 25):
+        msg: object = (name + " is healthy")
+    elif (25 <= bmi < 30):
+        msg: object = (name + " is overweight")
+    else:
+        msg: object = (name + " is obese")
+
+    myLabel = Label(root, text=msg)
+    myLabel.grid(row=6, column=0)
+    myBMILabel = Label(root, text="BMI: %d" % (round(bmi)))
+    myBMILabel.grid(row=5, column=0)
+
+myButton = Button(root, text="Calculate BMI", command=myClick)
+myButton.grid(row=4, column=0)
+
+root.mainloop()
