@@ -1,0 +1,28 @@
+name = input("Name: ")
+height_in = float(input("Height (in): "))
+weight_lb = float(input("Weight (lbs): "))
+
+weight_kg = weight_lb * 0.453592
+height_m = height_in * 0.0254
+
+bmi = weight_kg/(height_m **2)
+
+print("Your bmi is:")
+print(round(bmi))
+
+if (bmi < 18.50):
+    print(name + " is thin")
+    print("Eat a burger bitch stick.")
+elif (18.5 <= bmi < 25):
+    print(name + " is healthy")
+    print("This doesn't mean you are in shape. Work out.")
+elif (25 <= bmi < 30):
+    print(name + " is overweight")
+    print("Run a mile fat ass!")
+else:
+    print(name + " is obese")
+    print("You are so fat you should kill yourself.")
+
+
+input(".")
+                
